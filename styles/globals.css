@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ql-editor {
+    font-size: large;
+    color: gray;
+}
+
+/* .img{
+    height: auto;
+    width: 192px;
+} */
+
