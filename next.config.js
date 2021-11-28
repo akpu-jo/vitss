@@ -9,7 +9,7 @@ module.exports = {
     API_DEVELOPMENT: "http://localhost:8000/api",
     PRODUCTION: true,
     DOMAIN_DEV: "http://localhost:3000",
-    DOMAIN_PRO: "vitaminsussie.com",
+    DOMAIN_PRO: "vitss.vercel.app",
     FB_APP_ID: "2855831141394925",
   },
 };
