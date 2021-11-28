@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import { withRouter } from "next/router";
-import { getCookie } from "../../services/auth";
 import { createPost } from "../../services/post";
 import { PhotographIcon } from "@heroicons/react/solid";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -57,7 +56,6 @@ const WritePost = ({ router }) => {
   });
 
   const { error, sizeError, success, formData, hidePublishButton } = values;
-  const token = getCookie("token");
   const isInvalid = false;
 
   useEffect(() => {
@@ -69,7 +67,7 @@ const WritePost = ({ router }) => {
     e.preventDefault();
     // console.log("ready to publish");
     formData.set("tags", postTags);
-    createPost(formData, token).then((data) => {
+    createPost(formData).then((data) => {
       console.log(data);
 
       if (data.errors || data.error) {

@@ -24,7 +24,7 @@ function SearchPosts({search}) {
           className="bg-transparent border-none mr-3 px-2 leading-tight focus:outline-none"
           type="text"
           placeholder="Search"
-          ariaLabel="Search for an article"
+          aria-label="Search for an article"
           onChange={(e) => setQuery(e.target.value)}
         />
         <button type="submit" className="absolute right-0 top-0 mt-3 mr-4">

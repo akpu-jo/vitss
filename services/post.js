@@ -3,12 +3,11 @@ import { stringify } from "postcss";
 import queryString from 'query-string'
 import { API } from "../config";
 
-export const createPost = (post, token) => {
+export const createPost = (post) => {
   return fetch(`${API}/posts`, {
     method: "POST",
     headers: {
       Accept: "application/json",
-      Authorization: `Bearer ${token}`,
     },
     body: post,
   })

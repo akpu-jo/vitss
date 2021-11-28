@@ -35,6 +35,7 @@ export default function Home({ posts }) {
 
 export async function getServerSideProps(context) {
   try {
+    console.log(API)
     const cookies = parseCookies(context);
     const { data } = await axios.get(`${API}/users/private`, {
       headers: {
@@ -42,8 +43,6 @@ export async function getServerSideProps(context) {
       },
     });
     if (data.ok){
-
-      
           const result = await getRecentPosts();
       
           if (!result) {

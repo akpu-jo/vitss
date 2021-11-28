@@ -6,7 +6,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { getAllPosts } from "../../services/post";
 import Header from "../../components/Header";
 
-import { Layout } from "../../components/Layout";
 import PostCard from "../../components/post/PostCard";
 import SearchPosts from "../../components/post/SearchPosts";
 import ShowTags from "../../components/post/ShowTags";

@@ -1,6 +1,5 @@
 import fetch from "isomorphic-fetch";
-import cookie from "js-cookie";
-import next from "next";
+
 import { API } from "../config";
 
 export const createTag = (tag, token) => {
@@ -20,13 +19,12 @@ export const createTag = (tag, token) => {
       .catch((err) => console.log(err));
   };
 
-  export const getTags = ( token) => {
+  export const getTags = () => {
     return fetch(`${API}/tags`, {
       method: "GET",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
       },
     })
       .then((response) => {
@@ -35,13 +33,12 @@ export const createTag = (tag, token) => {
       .catch((err) => console.log(err));
   };
 
-  export const getTag = (slug, token) => {
+  export const getTag = (slug) => {
     return fetch(`${API}/tags/${slug}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
       },
 
     })

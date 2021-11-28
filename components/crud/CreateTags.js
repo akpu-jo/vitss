@@ -1,11 +1,9 @@
 import React, { useState, useReducer, useEffect, Fragment } from "react";
-import { getCookie } from "../../services/auth";
 import { createTag, getTags } from "../../services/tag";
 import { XCircleIcon } from "@heroicons/react/outline";
 import { Popover, Transition } from "@headlessui/react";
 
 export default function CreateTags({ postTags, setPostTags }) {
-  const token = getCookie("token");
 
   const [tags, setTags] = useState([]);
   const [name, setName] = useState(""); //tagname from input box
@@ -25,7 +23,7 @@ export default function CreateTags({ postTags, setPostTags }) {
   }, [reload]);
 
   const initTags = () => {
-    getTags(token).then((data) => {
+    getTags().then((data) => {
       if (data.error) {
         setValues({ ...values, error: data.error });
       } else {

@@ -4,8 +4,6 @@ import Image from "next/image";
 import NProgress from "nprogress";
 import ".././node_modules/nprogress/nprogress.css";
 import { useRouter } from "next/router";
-import { signout } from "../services/auth";
-import { NavOptions } from "./header/NavOptions";
 import UserOptions from "./header/UserOptions";
 import { Context } from "../contexts/AppContext";
 

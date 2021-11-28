@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { getCookie } from "../../services/auth";
 import { getTags } from "../../services/tag";
 
 function ShowTags() {
-  const token = getCookie("token");
   const [tags, setTags] = useState([]);
 
   const getAllTags = async () => {
-    const res = await getTags(token);
+    const res = await getTags();
     setTags(res);
   };
 

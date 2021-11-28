@@ -3,7 +3,6 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { getTag } from "../../services/tag";
 import Header from "../../components/Header";
-import { NavOptions } from "../../components/header/NavOptions";
 
 import PostCard from "../../components/post/PostCard";
 import ShowTags from "../../components/post/ShowTags";

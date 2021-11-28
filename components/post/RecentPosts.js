@@ -56,39 +56,37 @@ const RecentPosts = ({ posts }) => {
         removeArrowOnDeviceType={["tablet", "mobile"]}
       >
         {posts.map((post, i) => (
-          <>
-            <div
-              key={i}
-              className=" relative flex overflow-hidden hover:shadow-2xl transform hover:scale-105 duration-500"
-            >
-              <Link href={`/p/${post.slug}`}>
-                <a>
-                  <Image
-                    className=" object-cover "
-                    src={`${API}/posts/photo/${post.slug}`}
-                    alt=""
-                    width={500}
-                    height={500}
-                    quality={50}
-                  />
-                </a>
-              </Link>
-              <div className="bg-gradient-to-t from-secondary-black w-full absolute bottom-0">
-                <section className=" my-6 grid grid-cols-10 items-end">
-                  <Link href={`/p/${post.slug}`}>
-                    <a className="self-center col-span-8 px-6">
-                      <h2 className="  text-2xl font-serif font-semibold text-gray-200 hover:text-gray-800 cursor-pointer">
-                        {post.title}
-                      </h2>
-                    </a>
-                  </Link>
-                  <div className="px-6 border-l-2 border-gray-400 col-span-2 text-gray-100 self-center">
-                    {moment(post.updatedAt).format("ll")}
-                  </div>{" "}
-                </section>
-              </div>
+          <div
+            key={i}
+            className=" relative flex overflow-hidden hover:shadow-2xl transform hover:scale-105 duration-500"
+          >
+            <Link href={`/p/${post.slug}`}>
+              <a>
+                <Image
+                  className=" object-cover "
+                  src={`${API}/posts/photo/${post.slug}`}
+                  alt=""
+                  width={500}
+                  height={500}
+                  quality={50}
+                />
+              </a>
+            </Link>
+            <div className="bg-gradient-to-t from-secondary-black w-full absolute bottom-0">
+              <section className=" my-6 grid grid-cols-10 items-end">
+                <Link href={`/p/${post.slug}`}>
+                  <a className="self-center col-span-8 px-6">
+                    <h2 className="  text-2xl font-serif font-semibold text-gray-200 hover:text-gray-800 cursor-pointer">
+                      {post.title}
+                    </h2>
+                  </a>
+                </Link>
+                <div className="px-6 border-l-2 border-gray-400 col-span-2 text-gray-100 self-center">
+                  {moment(post.updatedAt).format("ll")}
+                </div>{" "}
+              </section>
             </div>
-          </>
+          </div>
         ))}
       </Carousel>
     </div>

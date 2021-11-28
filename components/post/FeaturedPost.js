@@ -70,36 +70,34 @@ const FeaturedPost = () => {
         removeArrowOnDeviceType={["tablet", "mobile"]}
       >
         {posts.map((post, i) => (
-          <>
-            <div key={i} className=" bg-gray-100 rounded-xl">
-              <div className="pb-2 rounded-xl">
-                <figure class="md:grid grid-cols-9 bg-gray-100 rounded-xl p-8 md:p-0">
-                  <div className="relative col-span-4 m-2 overflow-hidden hover:shadow-2xl transform hover:scale-105 duration-500">
-                    <img
-                      className=" object-cover rounded-xl w-40 h-40"
-                      src={`${API}/posts/photo/${post.slug}`}
-                      alt=""
-                    />
-                  </div>
+          <div key={i} className=" bg-gray-100 rounded-xl">
+            <div className="pb-2 rounded-xl">
+              <figure class="md:grid grid-cols-9 bg-gray-100 rounded-xl p-8 md:p-0">
+                <div className="relative col-span-4 m-2 overflow-hidden hover:shadow-2xl transform hover:scale-105 duration-500">
+                  <img
+                    className=" object-cover rounded-xl w-40 h-40"
+                    src={`${API}/posts/photo/${post.slug}`}
+                    alt=""
+                  />
+                </div>
 
-                  <div className=" self-center col-span-5 pt-3 md:p-4 text-center md:text-left space-y-2">
-                    <h2 className=" ">
-                      <Link href={`/p/${post.slug}`}>
-                        <a>
-                          <h2 className="pt-2 pb-2 text-xl text-gray-600 font-semibold">
-                            {post.title}
-                          </h2>
-                        </a>
-                      </Link>
-                      <div className="text-gray-400">
-                        {moment(post.updatedAt).fromNow()}
-                      </div>
-                    </h2>
-                  </div>
-                </figure>
-              </div>
+                <div className=" self-center col-span-5 pt-3 md:p-4 text-center md:text-left space-y-2">
+                  <h2 className=" ">
+                    <Link href={`/p/${post.slug}`}>
+                      <a>
+                        <h2 className="pt-2 pb-2 text-xl text-gray-600 font-semibold">
+                          {post.title}
+                        </h2>
+                      </a>
+                    </Link>
+                    <div className="text-gray-400">
+                      {moment(post.updatedAt).fromNow()}
+                    </div>
+                  </h2>
+                </div>
+              </figure>
             </div>
-          </>
+          </div>
         ))}
       </Carousel>
     </div>

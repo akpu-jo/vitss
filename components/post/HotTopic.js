@@ -14,17 +14,14 @@ import {
 
 import { API } from "../../config";
 import { getFeaturedPosts } from "../../services/post";
-import { getCookie } from "../../services/auth";
 import { getTag } from "../../services/tag";
 
 const HotTopic = ({ slug }) => {
-  const token = getCookie("token");
-
   const [posts, setPosts] = useState([]);
   const [tag, setTag] = useState();
 
   const getHotTopic = async () => {
-    const data = await getTag(slug, token);
+    const data = await getTag(slug);
     setPosts(data.posts);
     setTag(data.tag.name);
   };
@@ -78,32 +75,30 @@ const HotTopic = ({ slug }) => {
         removeArrowOnDeviceType={["tablet", "mobile"]}
       >
         {posts.map((post, i) => (
-          <>
-            <figure key={i} className=" bg-gray-100 rounded-xl h-full">
-                <div className="hover:shadow-2xl transform hover:scale-105 duration-500">
-                  <img
-                    className=" w-60 h-40 object-cover rounded-xl"
-                    src={`${API}/posts/photo/${post.slug}`}
-                    alt=""
-                  />
-                </div>
+          <figure key={i} className=" bg-gray-100 rounded-xl h-full">
+            <div className="hover:shadow-2xl transform hover:scale-105 duration-500">
+              <img
+                className=" w-60 h-40 object-cover rounded-xl"
+                src={`${API}/posts/photo/${post.slug}`}
+                alt=""
+              />
+            </div>
 
-                <div className=" pt-3 md:p-4 text-center md:text-left space-y-2">
-                  <h2 className=" ">
-                    <Link href={`/p/${post.slug}`}>
-                      <a>
-                        <h2 className="pt-2 pb-2 text-xl text-gray-600 font-semibold">
-                          {post.title}
-                        </h2>
-                      </a>
-                    </Link>
-                    <div className="text-gray-400">
-                      {moment(post.updatedAt).fromNow()}
-                    </div>
-                  </h2>
+            <div className=" pt-3 md:p-4 text-center md:text-left space-y-2">
+              <h2 className=" ">
+                <Link href={`/p/${post.slug}`}>
+                  <a>
+                    <h2 className="pt-2 pb-2 text-xl text-gray-600 font-semibold">
+                      {post.title}
+                    </h2>
+                  </a>
+                </Link>
+                <div className="text-gray-400">
+                  {moment(post.updatedAt).fromNow()}
                 </div>
-            </figure>
-          </>
+              </h2>
+            </div>
+          </figure>
         ))}
       </Carousel>
     </div>

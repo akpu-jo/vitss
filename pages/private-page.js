@@ -3,7 +3,6 @@ import { parseCookies } from "nookies";
 import axios from "axios";
 import { API } from "../config";
 import { Context } from "../contexts/AppContext";
-import WritePost from '../components/crud/post'
 
 const PrivateTest = ({ children }) => {
   const { state } = useContext(Context);
