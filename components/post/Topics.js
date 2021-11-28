@@ -9,15 +9,13 @@ import {
   ArrowNarrowLeftIcon,
 } from "@heroicons/react/outline";
 
-import { getCookie } from "../../services/auth";
 import { getTags } from "../../services/tag";
 
 const Topics = () => {
-  const token = getCookie("token");
   const [tags, setTags] = useState([]);
 
   const getAllTags = async () => {
-    const res = await getTags(token);
+    const res = await getTags();
     setTags(res);
   };
 

@@ -4,7 +4,6 @@ import {
   getTags,
   removeTag,
 } from "../../services/tag";
-import { isAuth, getCookie } from "../../services/auth";
 
 const Tag = () => {
   const [values, setValues] = useState({
@@ -17,7 +16,6 @@ const Tag = () => {
   });
 
   const { name, error, success, tags, removed, reload } = values;
-  const token = getCookie("token");
   const isInvalid = false;
 
   useEffect(() => {
@@ -25,7 +23,7 @@ const Tag = () => {
   }, [reload]);
 
   const loadTags = () => {
-    getTags(token).then((data) => {
+    getTags().then((data) => {
       console.log(data);
       if (data.error) {
         console.log(data.message);
@@ -80,7 +78,7 @@ const Tag = () => {
   const clickSubmit = (e) => {
     e.preventDefault();
     // console.log('create category', name);
-    createTag({ name }, token).then((data) => {
+    createTag({ name }).then((data) => {
       if (data.error) {
         setValues({ ...values, error: data.error, success: false });
       } else {
