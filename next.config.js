@@ -2,7 +2,7 @@
 
 module.exports = {
   images: {
-    domains: ["localhost", "herokuapp" ],
+    domains: ["localhost", "vitss.herokuapp.com" ],
   },
   publicRuntimeConfig: {
     APP_NAME: "Vitamin Sussie",

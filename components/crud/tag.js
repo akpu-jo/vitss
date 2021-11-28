@@ -3,8 +3,8 @@ import {
   createTag,
   getTags,
   removeTag,
-} from "../../actions/tag";
-import { isAuth, getCookie } from "../../actions/auth";
+} from "../../services/tag";
+import { isAuth, getCookie } from "../../services/auth";
 
 const Tag = () => {
   const [values, setValues] = useState({
